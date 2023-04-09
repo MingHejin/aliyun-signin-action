@@ -1,0 +1,19 @@
+ name : Aliyun Signin 
+
+ on :
+ schedule :
+   ＃每天国际时间17:20运行一次，中国时间01:20
+- cron :'2017 * * * '
+ workflow _ dispatch : 
+ jobs :
+ signin :
+ name : Aliyun Signin 
+ runs - on : ubuntu - latest 
+ steps :
+- uses : ImYrS / aliyun - auto - signin @ main 
+with :
+ REFRESH _ TOKENS :${{ secrets . REFRESH _ TOKENS }} 
+ GP _ TOKEN :${{ secrets . GP _ TOKEN }}
+ PUSH _ TYPES :' TELEGRAM '
+ TELEGRAM _ BOT _ TOKEN :${{ secrets . TELEGRAM _ BOT _ TOKEN }} 
+ TELEGRAM _ CHAT _ ID :${{ secrets . TELEGRAM _ CHAT _ ID }}
